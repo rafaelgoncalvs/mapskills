@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+    <script src="findSkills.js"></script>
+    <link rel="stylesheet" href="findSkills.css">
+  </head>
+  <body>
+    <h2>Procure pessoas por suas habilidades:</h2>
+    <div ng-controller="FindPeopleHaveSkillController as findPeopleHaveSkill">
+      <form ng-submit="findPeopleHaveSkill.find()">
+        <input type="text" ng-model="findPeopleHaveSkill.skill" size="30" placeholder="Digite uma habilidade">
+        <input class="btn-primary" type="submit" value="Pesquisar">
+      </form>
+      <ul class="unstyled">
+        <li ng-repeat="person in findPeopleHaveSkill.todos">
+          <span>{{person.name}}</span>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
