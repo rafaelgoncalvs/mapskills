@@ -1,16 +1,32 @@
 (function() {
+  
   var app = angular.module('mapSkills', []);
 
-  var people = [];
-
-  app.controller('SearchController', function() {
+  app.controller('SearchController', ['$http', function($http) {
     this.skillName = '';
     
-    this.search = function() {
-      console.log('nome: ' + this.skillName);
-      people = ['Rafael', 'Hiago', 'Abacaxi'];
+    this.peopleFound = [];
+    
+    this.search = function(peopleFound) {    
+      //this.peopleFound = $http.get('people.json').success(function(data) {
+        //this.peopleFound = data;
+      //});
+      this.peopleFound = [
+        {
+          name: 'Rafael Goncalves'
+        },
+        {
+          name: 'Hugo Pena'
+        },
+        {
+          name: 'Abacaxi Paniago'
+        },
+        {
+          name: 'Alcir da Silva'
+        }
+      ];
     };
 
-  });
+  }]);
  
 })();

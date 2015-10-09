@@ -1,14 +1,17 @@
 <!doctype html>
 <html ng-app="mapSkills">
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+    <script type="text/javascript" src="angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </head>
-  <body>
+  <body ng-controller="SearchController as searchCtrl">
     <h2>Procure pessoas por suas habilidades:</h2>
-    <form ng-controller="SearchController as searchCtrl" ng-submit="searchCtrl.search()">
+    <form ng-submit="searchCtrl.search()">
       <input type="text" placeholder="Digite uma habilidade" ng-model="searchCtrl.skillName">
       <input type="submit" value="Search">
     </form>
+    <div ng-repeat="person in searchCtrl.peopleFound">
+      {{person.name}}
+    </div>
   </body>
 </html>
