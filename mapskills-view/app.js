@@ -2,31 +2,15 @@
   
   var app = angular.module('mapSkills', []);
 
-  app.controller('SearchController', ['$http', function($http) {
+  app.controller('SearchController', function($scope, $http) {
     this.skillName = '';
     
-    this.peopleFound = [];
-    
-    this.search = function(peopleFound) {    
-      //this.peopleFound = $http.get('people.json').success(function(data) {
-        //this.peopleFound = data;
-      //});
-      this.peopleFound = [
-        {
-          name: 'Rafael Goncalves'
-        },
-        {
-          name: 'Hugo Pena'
-        },
-        {
-          name: 'Abacaxi Paniago'
-        },
-        {
-          name: 'Alcir da Silva'
-        }
-      ];
+    this.search = function() {    
+      $http.get('http://localhost:8080/mapskills-api/people').success(function(data) {
+        $scope.peopleFound = data;
+      });
     };
 
-  }]);
+  });
  
 })();

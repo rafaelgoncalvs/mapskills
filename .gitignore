@@ -1,8 +1,8 @@
-/target
-/.settings
+\target
+\.settings
 .project
 .classpath
+\bin
 *.class
-
-
-
+*.css
+\rebel.xml
